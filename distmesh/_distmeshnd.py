@@ -116,6 +116,8 @@ def distmeshnd(fd, fh, h0, bbox, pfix=None, fig='gcf'):
     count = 0
     pold = float('inf')                              # For first iteration
 
+    print "Testing this"
+
     while True:
 
         # 3. Retriangulation by the Delaunay algorithm

@@ -15,7 +15,7 @@
 import os
 import numpy as np
 
-from distutils.core import setup
+from setuptools import setup
 
 # Read version from distmesh/__init__.py
 with open(os.path.join('distmesh', '__init__.py')) as f:
