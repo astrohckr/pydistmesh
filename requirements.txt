@@ -1,0 +1,5 @@
+NumPy
+SciPy
+matplotlib
+Cython
+LAPACK
