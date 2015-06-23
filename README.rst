@@ -89,6 +89,21 @@ available, can be used to rebuild the extension module bindings.
 .. _Cython: http://cython.org/
 .. _LAPACK: http://www.netlib.org/lapack/
 
+Building from Source
+--------------------
+
+You may want to do this if you are developing for `pydistmesh` or have
+made modifications.
+
+
+Install the Python dependencies with `pip`::
+
+    $ pip install -r requirements.txt
+
+Then, install `pydistmesh` itself::
+
+    $ python setup.py install
+
 References
 ----------
 
