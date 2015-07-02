@@ -19,7 +19,8 @@ PyDistMesh is distributed under the `GNU GPL`_.
      >>> import distmesh as dm
      >>> import numpy as np
      >>> fd = lambda p: np.sqrt((p**2).sum(1))-1.0
-     >>> p, t = dm.distmesh2d(fd, dm.huniform, 0.2, (-1,-1,1,1))
+     >>> p, t, fig = dm.distmesh2d(fd, dm.huniform, 0.2, (-1,-1,1,1))
+     >>> fig.savefig("output.png")
 
 * Rectangle with circular hole, refined at circle boundary::
 
@@ -27,8 +28,9 @@ PyDistMesh is distributed under the `GNU GPL`_.
      >>> fd = lambda p: dm.ddiff(dm.drectangle(p,-1,1,-1,1),
      ...                         dm.dcircle(p,0,0,0.5))
      >>> fh = lambda p: 0.05+0.3*dm.dcircle(p,0,0,0.5)
-     >>> p, t = dm.distmesh2d(fd, fh, 0.05, (-1,-1,1,1),
-     ...                      [(-1,-1),(-1,1),(1,-1),(1,1)])
+     >>> p, t, fig = dm.distmesh2d(fd, fh, 0.05, (-1,-1,1,1),
+     ...                          [(-1,-1),(-1,1),(1,-1),(1,1)])
+     >>> fig.savefig("output.png")
 
 
 3-D Examples
@@ -39,7 +41,7 @@ PyDistMesh is distributed under the `GNU GPL`_.
      >>> import distmesh as dm
      >>> import numpy as np
      >>> fd = lambda p: np.sqrt((p**2).sum(1))-1.0
-     >>> p, t = dm.distmeshnd(fd, dm.huniform, 0.2, (-1,-1,-1, 1,1,1))
+     >>> p, t, fig = dm.distmeshnd(fd, dm.huniform, 0.2, (-1,-1,-1, 1,1,1))
 
 * Cylinder with hole::
 
@@ -56,7 +58,7 @@ PyDistMesh is distributed under the `GNU GPL`_.
      >>> def fh10(p):
      ...     h1 = 4*np.sqrt((p**2).sum(1))-1.0
      ...     return np.minimum(h1, 2.0)
-     >>> p, t = dm.distmeshnd(fd10, fh10, 0.1, (-1,-1,-1, 1,1,1))
+     >>> p, t, fig = dm.distmeshnd(fd10, fh10, 0.1, (-1,-1,-1, 1,1,1))
 
 Demos
 -----
@@ -89,15 +91,18 @@ available, can be used to rebuild the extension module bindings.
 .. _Cython: http://cython.org/
 .. _LAPACK: http://www.netlib.org/lapack/
 
+Installing
+-----------
+
+Install `pydistmesh`::
+
+    $ python setup.py install
+
 Building from Source/Setup for Development
 ------------------------------------------
 
 You may want to do this if you are developing for `pydistmesh` or have
 made modifications.
-
-Install `pydistmesh`::
-
-    $ python setup.py install
 
 Install `pydistmesh` in `develop` mode::
 

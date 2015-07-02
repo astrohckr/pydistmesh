@@ -1,7 +1,7 @@
 # encoding: utf-8
 """PyDistMesh: A Simple Mesh Generator in Python
 
-https://github.com/bfroehle/pydistmesh
+https://github.com/astrohckr/pydistmesh
 """
 
 #-----------------------------------------------------------------------------
