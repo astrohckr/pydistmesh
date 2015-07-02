@@ -1,5 +1,0 @@
-NumPy
-SciPy
-matplotlib
-Cython
-

@@ -95,9 +95,9 @@ Building from Source/Setup for Development
 You may want to do this if you are developing for `pydistmesh` or have
 made modifications.
 
-Install the Python dependencies with `pip`::
+Install `pydistmesh`:
 
-    $ pip install -r requirements.txt
+    $ python setup.py install
 
 Install `pydistmesh` in `develop` mode::
 
