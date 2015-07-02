@@ -56,5 +56,11 @@ setup(name='PyDistMesh',
       url='https://github.com/bfroehle/pydistmesh',
       license='GPL',
       packages=['distmesh'],
+      install_requires=[
+          'NumPy',
+          'SciPy',
+          'matplotlib',
+          'Cython'
+      ],
       ext_modules=ext_modules,
 )
