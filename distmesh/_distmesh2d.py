@@ -29,13 +29,13 @@ __all__ = ['distmesh2d']
 # Functions
 #-----------------------------------------------------------------------------
 
-def distmesh2d(fd, fh, h0, bbox, pfix=None, fig='gcf'):
+def distmesh2d(fd, fh, h0, bbox, fig='gcf', pfix=None):
     """
     distmesh2d: 2-D Mesh Generator using Distance Functions.
 
     Usage
     -----
-    >>> p, t = distmesh2d(fd, fh, h0, bbox, pfix)
+    >>> p, t = distmesh2d(fd, fh, h0, bbox, fig, pfix)
 
     Parameters
     ----------
@@ -43,13 +43,14 @@ def distmesh2d(fd, fh, h0, bbox, pfix=None, fig='gcf'):
     fh:        Scaled edge length function h(x,y)
     h0:        Initial edge length
     bbox:      Bounding box, (xmin, ymin, xmax, ymax)
-    pfix:      Fixed node positions, shape (nfix, 2)
     fig:       Figure to use for plotting, or None to disable plotting.
+    pfix:      Fixed node positions, shape (nfix, 2)
 
     Returns
     -------
     p:         Node positions (Nx2)
     t:         Triangle indices (NTx3)
+    fig:       The figure produced by matplotlib
 
     Example: (Uniform Mesh on Unit Circle)
     >>> fd = lambda p: sqrt((p**2).sum(1))-1.0
@@ -213,4 +214,4 @@ def distmesh2d(fd, fh, h0, bbox, pfix=None, fig='gcf'):
         c.set_simplices((p, t))
         fig.canvas.draw()
 
-    return p, t
+    return p, t, fig

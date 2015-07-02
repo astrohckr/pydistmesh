@@ -30,13 +30,13 @@ __all__ = ['distmeshnd']
 # Functions
 #-----------------------------------------------------------------------------
 
-def distmeshnd(fd, fh, h0, bbox, pfix=None, fig='gcf'):
+def distmeshnd(fd, fh, h0, bbox, fig='gcf', pfix=None):
     """
     distmeshnd: N-D Mesh Generator using Distance Functions.
 
     Usage
     -----
-    >>> p, t = distmesh2d(fd, fh, h0, bbox, pfix)
+    >>> p, t = distmesh2d(fd, fh, h0, bbox, fig, pfix)
 
     Parameters
     ----------
@@ -51,6 +51,7 @@ def distmeshnd(fd, fh, h0, bbox, pfix=None, fig='gcf'):
     -------
     p:         Node positions (np, dim)
     t:         Triangle indices (nt, dim+1)
+    fig:       The figure produced by matplotlib
 
     Example: (Unit ball)
     >>> dim = 3
@@ -60,6 +61,7 @@ def distmeshnd(fd, fh, h0, bbox, pfix=None, fig='gcf'):
     """
 
     if fig == 'gcf':
+        print 'gcf'
         import matplotlib.pyplot as plt
         fig = plt.gcf()
 
@@ -78,7 +80,9 @@ def distmeshnd(fd, fh, h0, bbox, pfix=None, fig='gcf'):
 
     # 0. Prepare a figure.
     if fig is not None:
+        print "Preparing a figure"
         if dim == 2:
+            print " preparing 2D"
             from distmesh.plotting import SimplexCollection
             fig.clf()
             ax = fig.gca()
@@ -90,6 +94,7 @@ def distmeshnd(fd, fh, h0, bbox, pfix=None, fig='gcf'):
             ax.set_axis_off()
             fig.canvas.draw()
         elif dim == 3:
+            print " preparing 3D"
             import mpl_toolkits.mplot3d
             from distmesh.plotting import axes_simpplot3d
             fig.clf()
@@ -175,4 +180,4 @@ def distmeshnd(fd, fh, h0, bbox, pfix=None, fig='gcf'):
         if maxdp < ptol*h0:
             break
 
-    return p, t
+    return p, t, fig
