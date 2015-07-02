@@ -95,7 +95,7 @@ Building from Source/Setup for Development
 You may want to do this if you are developing for `pydistmesh` or have
 made modifications.
 
-Install `pydistmesh`:
+Install `pydistmesh`::
 
     $ python setup.py install
 
